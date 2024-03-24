@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Response.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 23:07:10 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/24 00:39:01 by nakebli          ###   ########.fr       */
+/*   Updated: 2024/03/24 22:23:56 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Response {
 		e_state								_state;
 		ssize_t								_bodyIndex;
 		bool								_waitForCgi;
+		std::string							_query;
 
 		std::map<std::string, std::string>  _headers;
 		std::fstream						_file;
@@ -65,27 +66,30 @@ class Response {
 		void								_handleRange( void );
 		std::string							_autoIndex( const std::string& dirName );
 		void								_openFile(std::string &fileName, int param);
+		void								_handleCookies( void );
+		std::vector<std::string>			_splitHeaderValue(std::string header);
+		
 		void								_getFileName(std::string &resource);
 		void    							_setCGI_Arguments( void );
 		void    							_initCGI();
 		int    								_executeCGI( int& fd );
 		void								_parseCgiHeaders( std::string headers );
-		void _printfile() {
-			    std::ifstream infile(_responsefileName);
-    			if (!infile.is_open()) {
-    			    std::cerr << "Failed to open the file." << std::endl;
-    			    return ;
-    			}
+		// void _printfile() {
+		// 	    std::ifstream infile(_responsefileName);
+    	// 		if (!infile.is_open()) {
+    	// 		    std::cerr << "Failed to open the file." << std::endl;
+    	// 		    return ;
+    	// 		}
 			
-    			std::cout << "===========---=========\n";
+    	// 		std::cout << "===========---=========\n";
 			
-    			std::string line;
-    			while (std::getline(infile, line)) {
-    			    std::cout << line << std::endl;
-    			}
-    			std::cout << "===========||=========\n";
-    			infile.close();
-		}
+    	// 		std::string line;
+    	// 		while (std::getline(infile, line)) {
+    	// 		    std::cout << line << std::endl;
+    	// 		}
+    	// 		std::cout << "===========||=========\n";
+    	// 		infile.close();
+		// }
 
 	public :
 		Response(IRequest& request, ProcessRequest& parse, int port, Selector& _selector);

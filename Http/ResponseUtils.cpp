@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ResponseUtils.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:15:20 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 11:51:31 by nakebli          ###   ########.fr       */
+/*   Updated: 2024/03/24 22:21:48 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,4 +142,20 @@ void	Response::_openFile(std::string &fileName, int param){
 		_file.open(fileName.c_str(), std::ios::in | std::ios::out | std::ios::binary | std::ios::trunc);
 	if (!_file.is_open())
 		throw ResponseException(HTTP_INTERNAL_SERVER_ERROR);
+}
+
+std::vector<std::string>	Response::_splitHeaderValue(std::string header){
+	std::string	value = _headers[header];
+	size_t		pos = value.find_first_of(", ");
+	
+	std::vector<std::string>	values;
+	if (pos != std::string::npos)
+		while (pos != std::string::npos){
+			values.push_back(value.substr(0, pos));
+			value.erase(0, pos + 2);
+			pos = value.find_first_of(", ");
+		}
+	else
+		values.push_back(value);
+	return values;
 }
