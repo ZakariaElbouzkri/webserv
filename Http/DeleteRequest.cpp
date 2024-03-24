@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DeleteRequest.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 22:04:42 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 01:26:03 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/03/22 02:03:41 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,9 @@ e_statusCode	DeleteRequest::parseBody(std::string &line){ // TODO: i think that 
 	return HTTP_OK;
 }
 
+std::string&                        DeleteRequest::getFileName( void ) {
+	return _fileName;
+}
 
 DeleteRequest::~DeleteRequest( void ){
 	if (_body.is_open())

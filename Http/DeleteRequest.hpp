@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DeleteRequest.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 22:05:34 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 01:26:08 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/03/22 02:02:00 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class	DeleteRequest : public IRequest{
 		ssize_t								getBodySize( void ) const;
 		ProcessRequest&						getParse( void ) const;
 		void								setUri( std::string uri );
+		std::string&                        getFileName( void );
 
 		~DeleteRequest( void );
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GetRequest.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:58:16 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 01:26:35 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/03/22 02:03:23 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,9 @@ e_statusCode	GetRequest::parseBody(std::string &line){ // TODO: i think that we 
 	return HTTP_OK;
 }
 
+std::string&                        GetRequest::getFileName( void ) {
+	return _fileName;
+}
 
 GetRequest::~GetRequest( void ){
 	if (_body.is_open())

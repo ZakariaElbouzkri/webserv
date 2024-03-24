@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   IRequest.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:57:05 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 01:26:41 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/03/22 02:05:14 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ class IRequest {
 		virtual std::vector<char>					getBody( void ) = 0;
 		virtual ssize_t	            				getBodySize( void ) const = 0;
 		virtual ProcessRequest&						getParse( void ) const = 0;
+        virtual std::string&                        getFileName( void ) = 0;
 
 		virtual ~IRequest(){};
 };

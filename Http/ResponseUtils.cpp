@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ResponseUtils.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ZakariaElbouzkri <elbouzkri9@gmail.com>    +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:15:20 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 06:43:21 by ZakariaElbo      ###   ########.fr       */
+/*   Updated: 2024/03/22 11:51:31 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	Response::initMaps(){
 		_mimeMap["html"] = "text/html";
 		_mimeMap["htm"] = "text/html";
 		_mimeMap["css"] = "text/css";
+		_mimeMap["js"] = "text/javascript";
 		_mimeMap["js"] = "application/javascript";
 		_mimeMap["jpg"] = "image/jpeg";
 		_mimeMap["jpeg"] = "image/jpeg";

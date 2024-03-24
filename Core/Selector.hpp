@@ -4,6 +4,7 @@
 #include <sys/time.h>
 #include <iostream>
 #include <stdio.h>
+#include <unistd.h>
 
 class	Selector
 {
@@ -53,7 +54,7 @@ class	Selector
 			FD_SET(fd, &wfds);
 		}
 
-		inline bool	isReadable( int fd ) {
+		inline bool	isReadable( int fd) {
 			return fd > 0 && FD_ISSET(fd, &rfds) != 0;
 		}
 		inline bool isWriteable( int fd ) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PostRequest.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 22:03:16 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 01:26:23 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/03/22 02:02:53 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,10 @@ e_statusCode	PostRequest::parseBody(std::string &line) {
 		return HTTP_BAD_REQUEST;
 	}
 	return HTTP_OK;
+}
+
+std::string&                        PostRequest::getFileName( void ) {
+	return _fileName;
 }
 
 PostRequest::~PostRequest( void ){

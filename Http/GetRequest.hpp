@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GetRequest.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:59:15 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 01:26:38 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/03/22 02:02:12 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class	GetRequest : public IRequest{
 		ssize_t								getBodySize( void ) const;
 		ProcessRequest&						getParse( void ) const;
 		void								setUri( std::string uri );
+		std::string&                        getFileName( void );
 
 		~GetRequest( void );
 };

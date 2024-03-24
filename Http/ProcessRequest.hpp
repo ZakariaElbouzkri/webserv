@@ -42,6 +42,7 @@ class ProcessRequest {
 		e_statusCode	_status;
 		IRequest*		_request;
 		Response*		_response;
+		int&			_cgi_fd;
 		bool			_good;
 		std::string		_responseBuffer;
 		Selector&		_selector;
@@ -52,7 +53,7 @@ class ProcessRequest {
 		void			_resetProcessor( void );
 
 	public:
-		ProcessRequest(int port, Selector& _selector);
+		ProcessRequest(int port, Selector& _selector, int& fd);
 
 		void			parseLine(char *buffer, int size);
 		bool			good( void );
@@ -65,7 +66,10 @@ class ProcessRequest {
 		void			setParseState(e_parseState state);
 		void			setGood(bool good);
 		void			resetRequest( void );
+		int&			getCgiFd();
 		bool			sent( void );
+		const int&		getPort() const;
+		void			getCgiResponse();
 
 		~ProcessRequest();
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:51:28 by zel-bouz          #+#    #+#             */
-/*   Updated: 2024/03/18 22:04:23 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2024/03/22 01:45:05 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,42 @@ time_t  currTime( void )
 {
     time_t ans = time(NULL);
     return ans;
+}
+
+//  ========== EXTERNAL FUNCTIONNS ==========
+
+
+std::string    getFileExtension(std::string request_uri) {
+    std::string extension = \
+    request_uri.substr(request_uri.find_last_of(".") + 1);
+    extension = extension.substr(0, extension.find('?'));
+    return extension;
+}
+
+std::string generateRandomFileName(int length) {
+    const std::string allowed_chars = \
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    std::string file_name = "CGI_";
+    std::srand(std::time(0));
+
+    for (int i = 0; i < length; ++i) {
+        int index = std::rand() % allowed_chars.size();
+        file_name += allowed_chars[index];
+    }
+
+    return file_name;
+}
+
+std::string formKey(std::string key)
+{
+    std::string formedKey = key;
+    for (size_t i = 0; i < formedKey.size(); i++)
+    {
+        if (formedKey[i] == '-')
+            formedKey[i] = '_';
+        else
+            formedKey[i] = toupper(formedKey[i]);
+    }
+    return formedKey;
 }
