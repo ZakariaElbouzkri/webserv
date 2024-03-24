@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Response.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 23:08:48 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/24 06:03:57 by nakebli          ###   ########.fr       */
+/*   Updated: 2024/03/24 20:58:40 by zel-bouz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -430,7 +430,7 @@ void    Response::_setCGI_Arguments( void ) {
         _query_string = requestURI.substr(requestURI.find('?') + 1);
         _file_path = serverRoot + requestURI.substr(0, requestURI.find('?'));
     }
-    _cgi_argv[0] = strdup(_file_path.c_str());
+    _cgi_argv[0] = strdup(normPath(_file_path).c_str());
     _cgi_argv[1] = NULL;
 }
 
@@ -491,8 +491,10 @@ int    Response::_executeCGI( int& fd ) {
         	close(fd1);
 		}
         extern char** environ;
+		
         execve(_cgi_argv[0], _cgi_argv, environ);
-        exit(502);
+		std::cerr << _cgi_argv[0] << " " <<  strerror(errno) << std::endl;
+		exit(502);
     }
     fcntl(fd, F_SETFL, O_NONBLOCK);
     _selector.set(fd, Selector::RD_SET);
@@ -550,11 +552,10 @@ int Response::_getCGI_Response(void) {
     int status;
     int ret = waitpid(_cgi_pid, &status, WNOHANG);
     if (ret == _cgi_pid) {
-        if (!WIFEXITED(status) || WIFSIGNALED(status)) {
+        if ((WIFEXITED(status) && WEXITSTATUS(status) != 0) || WIFSIGNALED(status)) {
             _status = HTTP_INTERNAL_SERVER_ERROR;
             goto Here;
         }
-
         std::ifstream cgiResponse(_responsefileName);
         if (!cgiResponse.is_open()) {
             _status = HTTP_FORBIDDEN;

@@ -50,15 +50,10 @@ class	Selector
 				FD_CLR(fd, &writefds);
 		}
 
-		inline void	setWrite( int fd ) {
-			FD_SET(fd, &wfds);
-		}
-
 		inline bool	isReadable( int fd) {
 			return fd > 0 && FD_ISSET(fd, &rfds) != 0;
 		}
 		inline bool isWriteable( int fd ) {
 			return fd > 0 && FD_ISSET(fd, &wfds) != 0;
 		}
-
 };
