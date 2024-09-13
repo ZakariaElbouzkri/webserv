@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MethodsUtils.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:29:39 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/26 21:19:37 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:48:16 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	Response::_getFileName(std::string &resource) {
 	}
 	else
 		return;
-	if (stat(resource.c_str(), NULL) == -1)
+	struct stat s;
+	if (stat(resource.c_str(), &s) == -1)
 		return;
 	resource += "/" + std::string(timestamp);
 	if (extension != "")

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   GetRequest.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:58:16 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/26 21:51:40 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2024/09/11 22:24:50 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GetRequest.hpp"
-
 
 GetRequest::GetRequest(std::string &method, std::string &uri, ProcessRequest& parse)
 	: _method(method), _uri(uri), _version("HTTP/1.1"), _parse(parse){

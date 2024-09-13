@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Response.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 23:08:48 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/26 21:42:31 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:58:47 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Response::Response(IRequest& request, ProcessRequest& parse, int port, Selector&
 	Response::initMaps();
 	if (_request != NULL) {
 		_server = MainConf::getConf()->getServerByHostPort(port, _request->getHeaders()["Host"]);
-		if (_server != NULL)
+		if (_server != NULL){
 			if (_request->getUri().find("?") != std::string::npos){
 				_query = _request->getUri().substr(_request->getUri().find("?") + 1);
 				_request->setUri(_request->getUri().substr(0, _request->getUri().find("?")));
@@ -39,6 +39,7 @@ Response::Response(IRequest& request, ProcessRequest& parse, int port, Selector&
 				goto X;
 			}
 			_request->setUri(ans.first);
+		}
 	}
 	else{
 		_server = MainConf::getConf()->getServerByHostPort(port, "");

@@ -6,7 +6,7 @@
 /*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 02:42:54 by zel-bouz          #+#    #+#             */
-/*   Updated: 2024/03/09 19:48:09 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:44:58 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ Server::Server (Selector& selector ) : _selector(selector) {
 };
 	
 void	Server::init( const std::string& host, int port ) {
-	_info.sin_addr.s_addr = inet_addr(host.c_str());
+	(void)host;
+	_info.sin_addr.s_addr = INADDR_ANY;
 	_info.sin_family = AF_INET;
 	_info.sin_port = htons(port);
 	_sock = socket(AF_INET, SOCK_STREAM, 0);

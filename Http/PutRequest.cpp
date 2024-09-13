@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PutRequest.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:14:26 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/26 21:52:16 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2024/09/11 22:24:19 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ e_statusCode	PutRequest::parseHeader(std::string &line){
 	}
 	return HTTP_OK;
 }
-
-
 
 e_statusCode	PutRequest::checkHeaders(void){
 	if (_headers.find("Host") == _headers.end())

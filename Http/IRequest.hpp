@@ -6,7 +6,7 @@
 /*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 15:57:05 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/26 18:13:30 by abizyane         ###   ########.fr       */
+/*   Updated: 2024/09/11 19:32:17 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <map>
 #include <vector>
 #include <fstream>
+#include <string>
 
 typedef enum{
     HTTP_CONTINUE = 100,

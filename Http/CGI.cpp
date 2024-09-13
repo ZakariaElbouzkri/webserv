@@ -3,29 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   CGI.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zel-bouz <zel-bouz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:30:35 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/26 21:30:16 by zel-bouz         ###   ########.fr       */
+/*   Updated: 2024/09/11 19:22:45 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Response.hpp"
 #include "../utils/utils.hpp"
-
-
-// void    Response::_setCGI_Arguments( void ) {
-//     _file_path = _request->getUri();
-//     _query_string = "";
-//     _cgi_argv = new char*[2];
-//     if (_request->getUri().find('?') != std::string::npos) {
-//         _query_string = _request->getUri().substr(_request->getUri().find('?') + 1);
-//         _file_path = _request->getUri().substr(0, _request->getUri().find('?'));
-//     }
-//     _cgi_argv[0] = strdup(normPath(_file_path).c_str());
-//     _cgi_argv[1] = NULL;
-// }
-
 
 void    Response::_setCGI_Arguments( void ) {
     
@@ -161,7 +147,7 @@ void    Response::readCgiFile(void) {
     try {
         if ((WIFEXITED(status) && WEXITSTATUS(status) != 0) || WIFSIGNALED(status))
             throw HTTP_INTERNAL_SERVER_ERROR;
-        std::ifstream cgiResponse(_responsefileName);
+        std::ifstream cgiResponse(_responsefileName.c_str());
         if (!cgiResponse.is_open())
             throw HTTP_FORBIDDEN;
         std::stringstream buffer;

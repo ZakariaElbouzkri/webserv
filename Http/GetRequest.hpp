@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GetRequest.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abizyane <abizyane@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 21:59:15 by abizyane          #+#    #+#             */
-/*   Updated: 2024/03/22 02:02:12 by nakebli          ###   ########.fr       */
+/*   Updated: 2024/09/11 20:25:05 by abizyane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,3 @@ class	GetRequest : public IRequest{
 };
 
 #include "ProcessRequest.hpp"
-
-

@@ -135,20 +135,15 @@ void	ProcessRequest::_parseRequestLine(std::string &requestLine){
 		_status = static_cast<e_statusCode>(checkMethod(method));
 		switch (checkMethod(method)){
 			case 0:
-				_request = new GetRequest(method, uri, *this);
-				break;
+				_request = new GetRequest(method, uri, *this);		break;
 			case 1:
-				_request = new PostRequest(method, uri, *this);
-				break;
+				_request = new PostRequest(method, uri, *this);		break;
 			case 2:
-				_request = new DeleteRequest(method, uri, *this);
-				break;
+				_request = new DeleteRequest(method, uri, *this);	break;
 			case 3:
-				_request = new PutRequest(method, uri, *this);
-				break;
+				_request = new PutRequest(method, uri, *this);		break;
 			default:
-				_state = Error;
-				return;
+				_state = Error;										return;
 		}
 		if ((_status = static_cast<e_statusCode>(checkUri(uri))) != 200 ||
 			(_status = static_cast<e_statusCode>(checkVersion(version))) != 200){
