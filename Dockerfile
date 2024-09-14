@@ -9,7 +9,7 @@ COPY . ./Webserv
 WORKDIR /Webserv
 
 RUN make && make clean &&\
-    cp nginx++ ./www/binary &&\
+    cp nginx++ ./www/other/binary &&\
     mv nginx++ /usr/local/bin &&\
     mv ./Configuration/servIO.conf /etc/
 
