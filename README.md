@@ -70,9 +70,9 @@ webserv/
 
 ## 👥 Authors
 
-- **Zakaria El Bouzkri** ([@zakaria-elbouzkri](https://github.com/zakaria-elbouzkri))
+- **Zakaria El Bouzkri** ([@zakaria-elbouzkri](https://github.com/elbouzkri))
 - **Achraf Bizyane** ([@abizyane](https://github.com/abizyane))
-- **Noureddine Akebli** ([@nakebli](https://github.com/nakebli))
+- **Noureddine Akebli** ([@nakebli]([https://github.com/nakebli](https://github.com/noureddine-ake)))
 
 ---
 
